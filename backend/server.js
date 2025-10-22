@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { connectDB } from './lib/db.js';
 import userRoutes from './routes/user.route.js';
-
+import postRoutes from './routes/post.route.js';
 import authRoutes from './routes/auth.route.js';
 dotenv.config();
 
@@ -24,6 +24,7 @@ app.use(express.json({ limit: '5mb' }));
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/posts', postRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
